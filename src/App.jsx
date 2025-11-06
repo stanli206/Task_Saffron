@@ -7,7 +7,7 @@ import AboutUs from "./components/AboutUs";
 import Insight from "./components/pages/Insight";
 import KashmiriSaffron from "./components/pages/KashmiriSaffron";
 import Beautyuse from "./components/pages/Beautyuse";
-import CulinaryUse from "./components/pages/culinaryUse";
+import CulinaryUse from "./components/pages/CulinaryUse";
 import MedicineUse from "./components/pages/MedicineUse";
 import PregnancyUse from "./components/pages/PregnancyUse";
 import ChooseUs from "./components/pages/ChooseUs";
