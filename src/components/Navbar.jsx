@@ -60,7 +60,7 @@ export default function Navbar() {
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [menuPath, setMenuPath] = useState(null); // null | knowledge | products | elixir | products.xx
+  const [menuPath, setMenuPath] = useState(null); 
   const [elixirKey, setElixirKey] = useState("beauty");
 
   useEffect(() => {

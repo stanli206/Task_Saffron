@@ -9,7 +9,7 @@ import {
 import React, { useEffect, useMemo, useState } from "react";
 import { FiChevronLeft, FiChevronRight, FiPause, FiPlay } from "react-icons/fi";
 
-// import beautyHero from "../../assets/beauty-hero.mp4"; // put your beauty hero video here (or remove <video> if not using)
+// import beautyHero from "../../assets/beauty-hero.mp4"; 
 
 import heroImg from "../../assets/cC.png";
 
