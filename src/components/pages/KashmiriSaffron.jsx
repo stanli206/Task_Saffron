@@ -1,4 +1,3 @@
-// src/components/pages/KashmiriSaffron.jsx
 import React from "react";
 import {
   FiFacebook,
@@ -71,7 +70,7 @@ export default function KashmiriSaffron() {
 
       <section className="bg-[#f6e7f3]">
         <div className="mx-auto max-w-6xl px-6 pb-24">
-          {/* --- Row 1: MEDICINAL MARVEL --- */}
+          
           <div className="grid grid-cols-1 items-center gap-10 py-20 md:grid-cols-2">
             {/* Text */}
             <div>

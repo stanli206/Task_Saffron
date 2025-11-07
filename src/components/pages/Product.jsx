@@ -7,7 +7,6 @@ function Product() {
   const { state } = useLocation();
   const navigate = useNavigate();
 
-  // use state if available, else find by id (works even after refresh)
   const product = state || products.find((p) => p._id === id) || null;
 
   if (!product) {

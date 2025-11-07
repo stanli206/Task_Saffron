@@ -9,7 +9,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { products } from "../data/Products";
 
-// your images
+
 import BeautyImg from "../assets/be.jpg";
 import CulinaryImg from "../assets/saffro.jpg";
 import MedicineImg from "../assets/me.jpeg";
@@ -139,11 +139,11 @@ export default function Navbar() {
           </div>
 
           <nav className="flex items-center gap-5">
-            {/* USER LOGIN POPUP */}
+            
             <div className="relative group">
               <FiUser className={iconClass} />
 
-              {/* POPUP */}
+          
               <div
                 className="absolute right-0 top-8 w-80 bg-white/90 backdrop-blur-md border border-white/30 rounded-xl p-5 shadow-xl
                opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-300"
@@ -193,7 +193,7 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* OVERLAY / DRAWER */}
+    
       <div
         className={`fixed inset-0 z-50 transition-opacity duration-300 ${
           menuOpen

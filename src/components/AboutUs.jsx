@@ -12,12 +12,10 @@ import {
 export default function AboutUs() {
   return (
     <div className="font-sans text-gray-800">
-      {/* HERO / BRAND INTRO */}
+     
       <section className="relative h-[80vh] w-full overflow-hidden">
-        {/* gradient bg */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#8b61d6] via-[#b192e6]/60 to-white" />
 
-        {/* center content */}
         <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 text-center text-white">
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light tracking-[0.35em] [word-spacing:0.2em]">
             Z PRINCESS SAFFRON
@@ -145,7 +143,7 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* OUR ESSE.. */}
+      
       
 
       {/* SIGNATURE QUOTE */}

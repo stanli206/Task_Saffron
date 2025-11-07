@@ -19,8 +19,8 @@ import imgii from "../../assets/cro.jpg";
 function ChooseUs() {
   return (
     <div className="bg-[#FFF5DE]">
-      {/* ✅ HERO VIDEO SECTION */}
-      <header className="relative h-[100vh] w-full overflow-hidden">
+      
+      <header className="relative h-[99.99vh] w-full overflow-hidden">
         <video
           className="absolute inset-0 h-full w-full object-cover"
           src={heroVideo}
@@ -30,15 +30,11 @@ function ChooseUs() {
           playsInline
         />
 
-        {/* Overlays */}
+        
         <div className="absolute inset-0 bg-black/45" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(transparent_60%,rgba(0,0,0,0.55))]" />
 
-        {/* ✅ DARK OVERLAY */}
-
-        {/* ✅ VIGNETTE EFFECT */}
-
-        {/* ✅ CONTENT (BUTTON INCLUDED) */}
+        
         <div className="relative z-10 mx-auto flex h-[calc(100vh-80px)] max-w-6xl flex-col items-center justify-center px-6 text-center text-white">
           <h1 className="text-2xl sm:text-5xl md:text-2xl lg:text-4xl font-light tracking-[0.35em] [word-spacing:0.2em]">
             OUR SAFFRON
@@ -50,13 +46,11 @@ function ChooseUs() {
             and Spain.
           </p>
 
-          {/* ✅ BUTTON IS HERE */}
         </div>
 
         {/* Content */}
       </header>
 
-      {/* ✅ QUALITY + PURITY SECTION */}
       <section className="py-28">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center px-6">
           {/* Image Left */}
@@ -78,7 +72,7 @@ function ChooseUs() {
         </div>
       </section>
 
-      {/* ✅ ETHICAL SOURCING SECTION */}
+      
       <section className="pb-28">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center px-6">
           {/* Text Left */}
@@ -100,7 +94,7 @@ function ChooseUs() {
         </div>
       </section>
 
-      {/* ✅ CARD SECTION */}
+    
       <section className="py-20 px-6">
         <h2 className="text-3xl md:text-4xl text-center tracking-[0.25em] mb-14">
           VERSATILE USES
@@ -146,19 +140,17 @@ function ChooseUs() {
       </section>
 
       <section className="relative h-[65vh] w-full overflow-hidden">
-        {/* ✅ Background Image */}
+   
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${imgii})` }}
         ></div>
 
-        {/* ✅ Dark Overlay */}
+       
         <div className="absolute inset-0 bg-black/40"></div>
 
-        {/* ✅ Vignette Blur (exact screenshot effect) */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(transparent_55%,rgba(0,0,0,0.55))]"></div>
 
-        {/* ✅ Center Content */}
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-6">
           <h1 className="text-white font-light tracking-[0.35em] text-3xl sm:text-4xl md:text-5xl">
             ELEVATE YOUR EXPERIENCE

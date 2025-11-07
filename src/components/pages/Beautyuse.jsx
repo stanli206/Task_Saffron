@@ -12,10 +12,9 @@ import { FiChevronLeft, FiChevronRight, FiPause, FiPlay } from "react-icons/fi";
 // import beautyHero from "../../assets/beauty-hero.mp4"; // put your beauty hero video here (or remove <video> if not using)
 
 import heroImg from "../../assets/cC.png";
-// ⬆️ Put your screenshot image here
 
 function Beautyuse() {
-  /////////////
+  
   const slides = useMemo(
     () => [
       {
@@ -125,22 +124,19 @@ function Beautyuse() {
 
   return (
     <main>
-      {/* ===== HERO SECTION (IMAGE BACKGROUND) ===== */}
       <section className="relative h-[100svh] w-full overflow-hidden">
-        {/* ✅ Background Image (No Video) */}
         <img
           src={heroImg}
           alt="Beauty Hero"
           className="absolute inset-0 h-full w-full object-cover"
         />
 
-        {/* ✅ Dark Overlay */}
+      
         <div className="absolute inset-0 bg-black/35" />
 
-        {/* ✅ Vignette Fade */}
+       
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(transparent_60%,rgba(0,0,0,0.55))]" />
 
-        {/* ✅ CENTER TITLE */}
         <div className="relative z-10 flex h-full items-center justify-center px-6 text-center">
           <h1 className="text-white tracking-[0.35em] text-4xl sm:text-6xl md:text-7xl drop-shadow">
             BEAUTY USES

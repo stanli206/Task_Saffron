@@ -1,4 +1,3 @@
-// src/components/pages/Insight.jsx
 import React from "react";
 import { useEffect } from "react";
 import heroVideo from "../../assets/insightvideo-QZD8qk3w.mp4";
@@ -10,20 +9,16 @@ import {
   FiMessageCircle,
 } from "react-icons/fi";
 
-// you already have these assets in your project; swap if needed
-import BeautyImg from "../../assets/be.jpg";
-import CulinaryImg from "../../assets/saffro.jpg";
-import WellImg from "../../assets/pr.jpg"; // placeholder for "Holistic Well-Being"
+import retwo from "../../assets/retwo.jpg";
+import reone from "../../assets/reone.jpeg";
+import rethree from "../../assets/rethree.jpg";
 
 export default function Insight() {
-  // (optional) scroll to top when page mounts
   useEffect(() => window.scrollTo(0, 0), []);
 
   return (
     <main className="bg-white text-[#0e0e0e]">
-      {/* ===== HERO (video background) ===== */}
-      <header className="relative h-[92vh] w-full overflow-hidden">
-        {/* video */}
+      <header className="relative h-[99.99vh] w-full overflow-hidden">
         <video
           className="absolute inset-0 h-full w-full object-cover"
           src={heroVideo}
@@ -32,11 +27,10 @@ export default function Insight() {
           muted
           playsInline
         />
-        {/* overlay + vignette */}
+
         <div className="absolute inset-0 bg-black/45" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(transparent_60%,rgba(0,0,0,0.55))]" />
 
-        {/* content */}
         <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 text-center text-white">
           <h1 className="font-light tracking-[0.35em] [word-spacing:0.2em] text-4xl md:text-5xl">
             INSIGHT
@@ -45,7 +39,7 @@ export default function Insight() {
             In the delicate petals of saffron, tradition finds its fragrance,
             and life its vibrance.
           </p>
-          {/* CTA (optional) */}
+
           <button
             className="mt-8 rounded-full bg-white/95 px-7 py-3 text-sm font-semibold text-gray-900 shadow-lg backdrop-blur transition hover:bg-white"
             onClick={() => {
@@ -58,7 +52,6 @@ export default function Insight() {
         </div>
       </header>
 
-      {/* ===== SECTION: QUALITY & TRADITION ===== */}
       <section id="quality" className="mx-auto max-w-6xl px-6 py-20 md:py-24">
         <h2 className="text-center text-3xl md:text-4xl tracking-[0.25em]">
           QUALITY AND TRADITION
@@ -70,7 +63,6 @@ export default function Insight() {
         </p>
       </section>
 
-      {/* ===== SECTION: EXPERIENCE THE MAGIC (3 cards) ===== */}
       <section className="bg-[#bcd6d1] py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-6">
           <h2 className="text-center text-3xl md:text-4xl tracking-[0.25em]">
@@ -81,7 +73,7 @@ export default function Insight() {
             {/* Card 1 */}
             <article className="rounded-xl bg-[#bcd6d1] shadow-xl">
               <img
-                src={CulinaryImg}
+                src={reone}
                 alt="Culinary Mastery"
                 className="h-64 w-full rounded-xl object-cover"
               />
@@ -99,7 +91,7 @@ export default function Insight() {
             {/* Card 2 */}
             <article className="rounded-xl bg-[#bcd6d1] shadow-xl">
               <img
-                src={BeautyImg}
+                src={retwo}
                 alt="Timeless Beauty"
                 className="h-64 w-full rounded-xl object-cover"
               />
@@ -118,7 +110,7 @@ export default function Insight() {
             {/* Card 3 */}
             <article className="rounded-xl bg-[#bcd6d1] shadow-xl">
               <img
-                src={WellImg}
+                src={rethree}
                 alt="Holistic Well-Being"
                 className="h-64 w-full rounded-xl object-cover"
               />
@@ -137,7 +129,6 @@ export default function Insight() {
         </div>
       </section>
 
-      {/* ===== SECTION: THE SECRETS OF THE CROCUS SATIVUS ===== */}
       <section className="mx-auto max-w-5xl px-6 py-20 md:py-24">
         <h2 className="text-center text-3xl md:text-4xl tracking-[0.25em]">
           THE SECRETS OF THE CROCUS SATIVUS

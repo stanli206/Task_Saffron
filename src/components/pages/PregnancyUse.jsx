@@ -35,7 +35,7 @@ const CARDS = [
   },
 ];
 
-// dots (kept for future extensibility)
+
 const Dot = ({ active, onClick }) => (
   <button
     onClick={onClick}
@@ -54,7 +54,7 @@ export default function PregnancyUse() {
   const current = useMemo(() => CARDS[index], [index]);
   const hasMultiple = CARDS.length > 1;
 
-  // autoplay (only if multiple slides)
+ 
   useEffect(() => {
     if (!hasMultiple || !playing) return;
     timerRef.current = setInterval(
@@ -82,20 +82,20 @@ export default function PregnancyUse() {
   return (
     <main>
       <section className="relative h-[100svh] w-full overflow-hidden">
-        {/* ✅ Background Image (No Video) */}
+        
         <img
           src={heroImg}
           alt="Beauty Hero"
           className="absolute inset-0 h-full w-full object-cover"
         />
 
-        {/* ✅ Dark Overlay */}
+        
         <div className="absolute inset-0 bg-black/35" />
 
-        {/* ✅ Vignette Fade */}
+        
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(transparent_60%,rgba(0,0,0,0.55))]" />
 
-        {/* ✅ CENTER TITLE */}
+        
         <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 text-center text-white">
           <h1 className="font-light tracking-[0.35em] [word-spacing:0.2em] text-4xl md:text-5xl">
             PREGNANT WOMAN
@@ -110,7 +110,7 @@ export default function PregnancyUse() {
 
       <section className="relative min-h-screen w-full bg-[#f6dbe8] py-16 sm:py-20">
         <div className="mx-auto w-full max-w-6xl px-5">
-          {/* controls (hidden if only one slide) */}
+          
           {hasMultiple && (
             <div className="mb-6 flex items-center justify-between">
               <div className="flex gap-3">
@@ -163,7 +163,7 @@ export default function PregnancyUse() {
                 ))}
               </div>
 
-              {/* dots (only if multiple slides) */}
+              
               {hasMultiple && (
                 <div className="mt-12 flex items-center justify-center gap-2">
                   {CARDS.map((_, i) => (
@@ -176,7 +176,7 @@ export default function PregnancyUse() {
                 </div>
               )}
 
-              {/* gentle medical note */}
+              
               <p className="mt-10 text-center text-[11.5px] leading-6 text-rose-900/70 sm:text-[12.5px]">
                 Note: Information above is educational and not medical advice.
                 During pregnancy, avoid self-supplementation and consult your

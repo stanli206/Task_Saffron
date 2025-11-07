@@ -41,7 +41,7 @@ function Home() {
     <div>
       <header>
         <div className="relative h-screen w-full overflow-hidden bg-black font-sans">
-          {/* ✅ BACKGROUND VIDEO */}
+          {/* BACKGROUND VIDEO */}
           <video
             className="absolute inset-0 h-full w-full object-cover"
             src={heroVideo}
@@ -51,13 +51,13 @@ function Home() {
             playsInline
           />
 
-          {/* ✅ DARK OVERLAY */}
+          
           <div className="absolute inset-0 " />
 
-          {/* ✅ VIGNETTE EFFECT */}
+          
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(transparent_60%,rgba(0,0,0,0.55))]" />
 
-          {/* ✅ CONTENT (BUTTON INCLUDED) */}
+         
           <div className="relative z-10 mx-auto flex h-[calc(100vh-80px)] max-w-6xl flex-col items-center justify-center px-6 text-center text-white">
             <h1 className="text-2xl sm:text-5xl md:text-2xl lg:text-4xl font-light tracking-[0.35em] [word-spacing:0.2em]">
               Z PRINCESS SAFFRON
@@ -67,7 +67,7 @@ function Home() {
               World&apos;s Finest Saffron
             </p>
 
-            {/* ✅ BUTTON IS HERE */}
+        
             <button
               onClick={() => navigate("/about-us")}
               className="mt-10 rounded-full bg-white/95 px-6 sm:px-8 py-3 text-xs sm:text-sm font-semibold text-black shadow-lg backdrop-blur hover:bg-white transition-transform duration-200 hover:scale-105"
@@ -88,7 +88,7 @@ function Home() {
         />
         <div className="absolute inset-0 bg-black/45"></div>
 
-        {/* ----------- BEFORE CLICK VIEW ----------- */}
+        
         <div
           className={`absolute inset-0 z-10 flex items-center justify-center text-center px-4 transition-all duration-500 
       ${
@@ -111,7 +111,7 @@ function Home() {
           </div>
         </div>
 
-        {/* ----------- PRODUCT GRID----------- */}
+        
         <div
           className={`absolute inset-0 z-20 flex items-center justify-center transition-all duration-500
         ${
@@ -135,7 +135,7 @@ function Home() {
                     alt={p.name}
                     className="h-[460px] w-full object-cover"
                   />
-                  {/* footer (like screenshot) */}
+                
                   <div className="bg-stone-200/80 px-4 py-3">
                     <h3 className="text-[13px] tracking-[0.18em] text-gray-900">
                       {p.name.toUpperCase()}
@@ -158,7 +158,7 @@ function Home() {
           WHAT SET US APART
         </h2>
 
-        {/* 3 Columns */}
+        
         <div className="grid md:grid-cols-3 gap-12 text-center md:text-left">
           {[
             {
@@ -185,7 +185,7 @@ function Home() {
           ))}
         </div>
 
-        {/* Newsletter */}
+    
         <div className="mt-28 text-center">
           <h2 className="text-2xl md:text-4xl tracking-[0.28em] font-light text-gray-900 mb-10">
             SUBSCRIBE TO OUR NEWSLETTER

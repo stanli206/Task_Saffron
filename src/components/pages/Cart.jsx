@@ -1,4 +1,3 @@
-// src/components/cart/EmptyCart.jsx
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -16,9 +15,7 @@ export default function Cart() {
     <div>
       <section className="min-h-[calc(100vh-64px)] w-full flex items-center justify-center">
         <div className="text-center px-4">
-          {/* Illustration */}
           <div className="mx-auto mb-8 h-56 w-56 select-none">
-            {/* Simple bags SVG illustration */}
             <svg
               viewBox="0 0 300 220"
               className="h-full w-full"
@@ -39,7 +36,7 @@ export default function Cart() {
                 </linearGradient>
               </defs>
 
-              {/* confetti dots */}
+             
               <g fill="#f08c00" opacity="0.8">
                 <circle cx="70" cy="20" r="2" />
                 <circle cx="115" cy="10" r="2" />
@@ -70,7 +67,7 @@ export default function Cart() {
                 />
               </g>
 
-              {/* center bag (taller) */}
+              
               <g transform="translate(120,80)">
                 <rect width="90" height="100" rx="10" fill="url(#bagB)" />
                 <path

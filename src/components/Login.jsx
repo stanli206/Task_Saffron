@@ -16,7 +16,7 @@ function LineInput({ icon, type = "text", placeholder = "" }) {
 }
 
 export default function Login() {
-  // ✅ Plain JS state (no TS generic)
+
   const [mode, setMode] = useState("login");
   const isLogin = mode === "login";
 
@@ -32,7 +32,7 @@ export default function Login() {
         playsInline
       />
 
-      {/* Overlays */}
+      
       <div className="absolute inset-0 bg-black/35" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(transparent_60%,rgba(0,0,0,0.55))]" />
 
