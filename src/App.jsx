@@ -11,6 +11,8 @@ import CulinaryUse from "./components/pages/CulinaryUse";
 import MedicineUse from "./components/pages/MedicineUse";
 import PregnancyUse from "./components/pages/PregnancyUse";
 import ChooseUs from "./components/pages/ChooseUs";
+import Login from "./components/Login";
+import Cart from "./components/pages/Cart";
 
 export default function App() {
   return (
@@ -27,6 +29,8 @@ export default function App() {
         <Route path="/culinary-use" element={<CulinaryUse />} />
         <Route path="/medicine-use" element={<MedicineUse />} />
         <Route path="/pregnancy-use" element={<PregnancyUse />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </BrowserRouter>
   );

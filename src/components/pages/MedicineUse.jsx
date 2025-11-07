@@ -1,11 +1,304 @@
-import React from 'react'
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import {
+  FiFacebook,
+  FiInstagram,
+  FiMail,
+  FiLinkedin,
+  FiMessageCircle,
+} from "react-icons/fi";
+import heroImg from "../../assets/pv.avif";
 
-function MedicineUse() {
+// ---- DATA ----
+const CARDS = [
+  {
+    key: "cognition",
+    heading: "COGNITIVE HEALTH AND MEMORY IMPROVEMENT",
+    intro:
+      "How saffron may support cognition and memory—concise highlights from research and mechanisms.",
+    blocks: [
+      {
+        title: "ACTIVE COMPOUNDS & MECHANISMS",
+        text: "Crocin, safranal and picrocrocin contribute antioxidant/anti-inflammatory effects linked to cognitive support.",
+      },
+      {
+        title: "CLINICAL STUDIES",
+        text: "Trials report improvements in cognitive function and daily activities with standardized saffron supplementation in certain groups.",
+      },
+      {
+        title: "MECHANISM OF ACTION",
+        text: "By lowering oxidative stress and neutralizing free radicals, saffron may help protect neurons and memory processes.",
+      },
+      {
+        title: "DOSAGE & SAFETY",
+        text: "Typical study range: ~20–30 mg/day (standardized extract). Follow labeled guidance and consult a clinician.",
+      },
+    ],
+  },
+  {
+    key: "mood",
+    heading: "DEPRESSION AND ANXIETY",
+    intro:
+      "Research explores saffron’s role in mood support—including depressive symptoms and anxiety balance.",
+    blocks: [
+      {
+        title: "MOOD REGULATION",
+        text: "Active compounds may influence serotonin and dopamine, potentially promoting calmer mood.",
+      },
+      {
+        title: "CLINICAL STUDIES",
+        text: "Several studies suggest saffron reduces depressive symptoms; in some cases comparable to SSRIs for mild–moderate cases.",
+      },
+      {
+        title: "MECHANISM OF ACTION",
+        text: "Antioxidant/anti-inflammatory activity with possible serotonin modulation supports the mood effect profile.",
+      },
+      {
+        title: "DOSAGE & SAFETY",
+        text: "Common range: ~15–30 mg/day. Always consult a healthcare professional before starting.",
+      },
+    ],
+  },
+  {
+    key: "digestive",
+    heading: "DIGESTIVE HEALTH",
+    intro:
+      "Potential GI comfort via antioxidant and anti-inflammatory pathways.",
+    blocks: [
+      {
+        title: "DIGESTIVE BENEFITS",
+        text: "May reduce oxidative stress and local inflammation in the GI tract, easing digestive discomfort.",
+      },
+      {
+        title: "CLINICAL STUDIES",
+        text: "Evidence suggests gastric mucosa protection and reduced ulcer formation with saffron or constituents.",
+      },
+      {
+        title: "MECHANISM OF ACTION",
+        text: "Lowering inflammatory signaling can help conditions such as gastritis or inflammatory bowel irritation.",
+      },
+      {
+        title: "DOSAGE & SAFETY",
+        text: "Typical study doses: ~20–30 mg/day standardized extract—personalize with professional advice.",
+      },
+    ],
+  },
+  {
+    key: "pain",
+    heading: "ANTI-INFLAMMATORY AND PAIN RELIEF",
+    intro:
+      "Saffron’s anti-inflammatory properties are investigated for general pain relief and women’s health uses.",
+    blocks: [
+      {
+        title: "PAIN RELIEF",
+        text: "Reducing inflammatory drivers can ease discomfort; mild analgesic effects reported in some studies.",
+      },
+      {
+        title: "CLINICAL STUDIES",
+        text: "Indications include relief in dysmenorrhea (menstrual cramps) and related symptoms.",
+      },
+      {
+        title: "DOSAGE & SAFETY",
+        text: "Common research range ~20–30 mg/day. Follow labeled guidance and consult your clinician.",
+      },
+    ],
+  },
+];
+
+// UI bits
+const Dot = ({ active, onClick }) => (
+  <button
+    onClick={onClick}
+    className={`h-1.5 w-6 rounded-full transition-all ${
+      active ? "bg-cyan-700" : "bg-cyan-300/60 hover:bg-cyan-400"
+    }`}
+    aria-label="Go to slide"
+  />
+);
+
+export default function MedicineUse() {
+  const [index, setIndex] = useState(0);
+  const [playing, setPlaying] = useState(true);
+  const timerRef = useRef(null);
+
+  const current = useMemo(() => CARDS[index], [index]);
+
+  useEffect(() => {
+    if (!playing) return;
+    timerRef.current = setInterval(
+      () => setIndex((i) => (i + 1) % CARDS.length),
+      7000
+    );
+    return () => clearInterval(timerRef.current);
+  }, [playing]);
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+      if (e.key === " ") setPlaying((p) => !p);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  const prev = () => setIndex((i) => (i - 1 + CARDS.length) % CARDS.length);
+  const next = () => setIndex((i) => (i + 1) % CARDS.length);
+
   return (
-    <div>
-      <h1>mediiiciiineee</h1>
-    </div>
-  )
-}
+    <main>
+      <section className="relative h-[100svh] w-full overflow-hidden">
+        {/* ✅ Background Image (No Video) */}
+        <img
+          src={heroImg}
+          alt="Beauty Hero"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
 
-export default MedicineUse
+        {/* ✅ Dark Overlay */}
+        <div className="absolute inset-0 bg-black/35" />
+
+        {/* ✅ Vignette Fade */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(transparent_60%,rgba(0,0,0,0.55))]" />
+
+        {/* ✅ CENTER TITLE */}
+        <div className="relative z-10 flex h-full items-center justify-center px-6 text-center">
+          <h1 className="text-white tracking-[0.35em] text-4xl sm:text-6xl md:text-7xl drop-shadow">
+            MEDICINAL USES
+          </h1>
+        </div>
+      </section>
+
+      <section className="relative min-h-screen w-full bg-[#e6fbff] py-16 sm:py-20">
+        <div className="mx-auto w-full max-w-6xl px-5">
+          <div className="mb-6 flex items-center justify-between">
+            <div className="flex gap-3">
+              <button
+                onClick={prev}
+                className="grid h-8 w-8 place-content-center rounded-full bg-white shadow hover:shadow-md"
+                aria-label="Previous"
+              >
+                ←
+              </button>
+              <button
+                onClick={next}
+                className="grid h-8 w-8 place-content-center rounded-full bg-white shadow hover:shadow-md"
+                aria-label="Next"
+              >
+                →
+              </button>
+            </div>
+            <button
+              onClick={() => setPlaying((p) => !p)}
+              className="grid h-8 w-8 place-content-center rounded-full bg-white shadow hover:shadow-md"
+              aria-label="Play/Pause"
+              title={playing ? "Pause" : "Play"}
+            >
+              {playing ? "⏸" : "▶"}
+            </button>
+          </div>
+
+          <div className="rounded-2xl bg-white/75 shadow-lg ring-1 ring-cyan-900/5 backdrop-blur">
+            <div className="px-4 py-10 sm:px-10 sm:py-14">
+              <h2 className="mb-2 text-center text-xl tracking-[0.35em] text-cyan-900 sm:text-2xl">
+                {current.heading}
+              </h2>
+              <p className="mx-auto mb-10 max-w-4xl text-center text-[13px] leading-7 text-cyan-900/90 sm:text-[15px]">
+                {current.intro}
+              </p>
+
+              <div className="space-y-10">
+                {current.blocks.map((b) => (
+                  <div key={b.title} className="text-center">
+                    <h3 className="mb-2 text-sm tracking-[0.5em] text-cyan-800 sm:text-base">
+                      {b.title}
+                    </h3>
+                    <p className="mx-auto max-w-5xl text-[12.5px] leading-7 text-cyan-900/80 sm:text-[14.5px]">
+                      {b.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-12 flex items-center justify-center gap-2">
+                {CARDS.map((_, i) => (
+                  <Dot
+                    key={i}
+                    active={i === index}
+                    onClick={() => setIndex(i)}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="bg-[#231a38] text-gray-300 py-10">
+        <div className="max-w-7xl mx-auto px-6">
+          {/* Logo */}
+          <h2 className="footer-logo text-center text-lg md:text-xl tracking-[0.35em] text-gray-200 mb-6">
+            Z PRINCESS SAFFRON
+          </h2>
+
+          <hr className="border-gray-500/40 mb-10" />
+
+          {/* Links */}
+          <div className="grid md:grid-cols-3 gap-12 text-center md:text-left text-sm">
+            <div className="space-y-3 tracking-[0.2em]">
+              <a href="#" className="block hover:text-white">
+                CONTACT
+              </a>
+              <a href="#" className="block hover:text-white">
+                ABOUT
+              </a>
+            </div>
+
+            <div className="space-y-3 tracking-[0.2em]">
+              <a href="#" className="block hover:text-white">
+                TERMS AND CONDITION
+              </a>
+              <a href="#" className="block hover:text-white">
+                PRIVACY POLICY
+              </a>
+              <a
+                href="#"
+                className="block hover:text-white flex items-center gap-2 justify-center md:justify-start"
+              >
+                CORPORATE ESSENTIALS <span>▼</span>
+              </a>
+            </div>
+
+            <div className="space-y-3 tracking-[0.2em]">
+              <a href="#" className="block hover:text-white">
+                REFUND POLICY
+              </a>
+              <a href="#" className="block hover:text-white">
+                SHIPPING POLICY
+              </a>
+              <a href="#" className="block hover:text-white">
+                FAQ
+              </a>
+            </div>
+          </div>
+
+          {/* Socials */}
+          <div className="flex justify-center gap-6 mt-10 text-gray-400 text-xl">
+            <FiFacebook className="hover:text-white cursor-pointer" size={22} />
+            <FiMessageCircle
+              className="hover:text-white cursor-pointer"
+              size={22}
+            />
+            <FiInstagram
+              className="hover:text-white cursor-pointer"
+              size={22}
+            />
+            <FiMail className="hover:text-white cursor-pointer" size={22} />
+            <FiLinkedin className="hover:text-white cursor-pointer" size={22} />
+          </div>
+
+          <hr className="border-gray-500/40 mt-10" />
+        </div>
+      </footer>
+    </main>
+  );
+}

@@ -139,14 +139,56 @@ export default function Navbar() {
           </div>
 
           <nav className="flex items-center gap-5">
-            <FiUser className={iconClass} />
+            {/* USER LOGIN POPUP */}
+            <div className="relative group">
+              <FiUser className={iconClass} />
+
+              {/* POPUP */}
+              <div
+                className="absolute right-0 top-8 w-80 bg-white/90 backdrop-blur-md border border-white/30 rounded-xl p-5 shadow-xl
+               opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-300"
+              >
+                <h2 className="text-center text-gray-900 font-semibold tracking-wider mb-2">
+                  ALREADY HAVE AN ACCOUNT?
+                </h2>
+
+                <button
+                  onClick={() => navigate("/login")}
+                  className="w-full bg-black text-white py-2 rounded-md mb-4 hover:bg-black/90 transition"
+                >
+                  LOGIN
+                </button>
+
+                <h2 className="text-center text-gray-900 font-semibold tracking-wider mb-2">
+                  NOT REGISTERED YET?
+                </h2>
+
+                <button
+                  onClick={() => navigate("/login")}
+                  className="w-full bg-white text-gray-900 border border-gray-300 py-2 rounded-md hover:bg-gray-100 transition"
+                >
+                  REGISTER
+                </button>
+              </div>
+            </div>
+
             <FiShoppingBag className={iconClass} />
-            <div className="relative">
+            <div
+              className="relative cursor-pointer"
+              onClick={() => navigate("/cart")}
+            >
               <FiShoppingCart className={iconClass} />
               <span className="absolute -top-1 -right-1 inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-rose-500 px-1 text-[10px] font-semibold text-white">
                 0
               </span>
             </div>
+
+            {/* <div className="relative">
+              <FiShoppingCart className={iconClass} />
+              <span className="absolute -top-1 -right-1 inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-rose-500 px-1 text-[10px] font-semibold text-white">
+                0
+              </span>
+            </div> */}
           </nav>
         </div>
       </header>
@@ -161,10 +203,8 @@ export default function Navbar() {
         aria-hidden={!menuOpen}
         onClick={() => setMenuOpen(false)}
       >
-        {/* dim background */}
         <div className="absolute inset-0 bg-black/60" />
 
-        {/* ===== RIGHT HERO for ELIXIR (outside the panel) ===== */}
         {menuPath === "elixir" && (
           <div
             className="absolute top-0 bottom-0 right-0 z-[48] hidden sm:block"
@@ -193,7 +233,6 @@ export default function Navbar() {
           </div>
         )}
 
-        {/* ===== LEFT PANEL (drawer) – transparent like navbar, bg shows through ===== */}
         <aside
           onClick={(e) => e.stopPropagation()}
           className={`absolute left-0 top-0 h-full transform transition-transform duration-300 text-white z-[49] ${
@@ -204,17 +243,12 @@ export default function Navbar() {
             maxWidth: menuPath === "elixir" ? PANEL_W : 980,
           }}
         >
-          {/* glass + vignette layers (BEHIND text) */}
           <div className="absolute inset-0 -z-10">
-            {/* subtle blur so underlying image shows like navbar */}
             <div className="absolute inset-0 backdrop-blur-[2px]" />
-            {/* dark gradient so text stays readable */}
             <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-black/45" />
-            {/* corner vignette for depth */}
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(88,63,125,0.45)_0%,rgba(0,0,0,0.0)_98%)]" />
           </div>
 
-          {/* close */}
           <button
             onClick={() => setMenuOpen(false)}
             className="absolute right-4 top-4 p-2 text-white/80 hover:text-white"
@@ -223,12 +257,6 @@ export default function Navbar() {
             <FiX className="h-6 w-6" />
           </button>
 
-          {/* brand */}
-          <div className="px-8 pt-8 pb-6 text-xs tracking-[0.35em] opacity-90">
-            Z PRINCESS SAFFRON
-          </div>
-
-          {/* ========= MAIN MENU ========= */}
           {!menuPath && (
             <nav className="mt-4 space-y-8 px-15">
               <button
@@ -267,14 +295,14 @@ export default function Navbar() {
               </button>
 
               <button
-                onClick={() => goTo("/")}
+                onClick={() => goTo("/login")}
                 className="group w-full text-left flex items-center gap-4 text-[15px] tracking-[0.35em] opacity-90 hover:opacity-100"
               >
                 <span className="h-6 w-px bg-white/50 group-hover:bg-white" />
                 <span>RECOMMENDAR</span>
               </button>
               <button
-                onClick={() => goTo("/")}
+                onClick={() => goTo("/login")}
                 className="group w-full text-left flex items-center gap-4 text-[15px] tracking-[0.35em] opacity-90 hover:opacity-100"
               >
                 <span className="h-6 w-px bg-white/50 group-hover:bg-white" />
@@ -283,7 +311,6 @@ export default function Navbar() {
             </nav>
           )}
 
-          {/* ========= KNOWLEDGE HUB ========= */}
           {menuPath === "knowledge" && (
             <nav className="mt-4 space-y-8 px-8">
               <button
@@ -312,7 +339,6 @@ export default function Navbar() {
             </nav>
           )}
 
-          {/* ========= PRODUCTS (categories) ========= */}
           {menuPath === "products" && (
             <nav className="mt-4 space-y-8 px-8">
               <button
@@ -336,7 +362,6 @@ export default function Navbar() {
             </nav>
           )}
 
-          {/* ========= PRODUCT VARIANTS ========= */}
           {menuPath?.startsWith("products.") &&
             (() => {
               const parts = menuPath.split(".");
@@ -367,7 +392,6 @@ export default function Navbar() {
               );
             })()}
 
-          {/* ========= GOLDEN ELIXIR (left list) ========= */}
           {menuPath === "elixir" && (
             <nav className="mt-4 space-y-8 px-8">
               <button

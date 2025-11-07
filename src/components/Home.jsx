@@ -52,7 +52,7 @@ function Home() {
           />
 
           {/* ✅ DARK OVERLAY */}
-          <div className="absolute inset-0 bg-black/45" />
+          <div className="absolute inset-0 " />
 
           {/* ✅ VIGNETTE EFFECT */}
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(transparent_60%,rgba(0,0,0,0.55))]" />

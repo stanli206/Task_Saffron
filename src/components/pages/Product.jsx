@@ -26,15 +26,26 @@ function Product() {
 
   const { name, price, weight, image, flipimage, fullProduct } = product;
 
+  const average = 0;
+  const total = 0;
+
+  const Row = ({ label }) => (
+    <div className="grid grid-cols-[64px_1fr_84px] items-center gap-4">
+      <span className="text-gray-800">{label}</span>
+      <div className="h-3 w-full rounded-full bg-yellow-400" />
+      <span className="text-gray-700 text-sm">0 reviews</span>
+    </div>
+  );
+
   return (
     <main className="bg-stone-100 min-h-[80vh]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <button
+        {/* <button
           onClick={() => navigate(-1)}
           className="mb-6 text-sm tracking-widest text-gray-700 hover:text-black"
         >
           ← BACK TO PRODUCTS
-        </button>
+        </button> */}
 
         <div className="grid md:grid-cols-2 gap-10 items-start">
           {/* images */}
@@ -70,24 +81,6 @@ function Product() {
             </p>
             <p className="mt-2 text-gray-600">{fullProduct?.content}</p>
 
-            {fullProduct?.variants?.length ? (
-              <div className="mt-6">
-                <h3 className="text-sm font-semibold tracking-widest text-gray-700">
-                  VARIANTS
-                </h3>
-                <div className="mt-3 flex flex-wrap gap-3">
-                  {fullProduct.variants.map((v, i) => (
-                    <span
-                      key={i}
-                      className="rounded-full border px-3 py-1 text-sm"
-                    >
-                      {v.weight}g – ₹{v.price}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ) : null}
-
             <div className="mt-8 flex gap-3">
               <button className="rounded-full bg-black text-white px-6 py-3 text-sm tracking-widest hover:bg-gray-900">
                 ADD TO CART
@@ -99,6 +92,68 @@ function Product() {
           </div>
         </div>
       </div>
+      <section className="mx-auto max-w-6xl p-4 sm:p-6">
+        {/* TOP: REVIEWS OVERVIEW CARD */}
+        <div className="rounded-2xl border border-gray-200 bg-white shadow-sm">
+          <div className="flex items-center justify-between p-5 sm:p-6">
+            <h2 className="text-xl sm:text-2xl tracking-[0.15em]">
+              REVIEWS OVERVIEW
+            </h2>
+            <button className="rounded-full bg-black px-5 py-2 text-sm font-semibold text-white hover:bg-gray-900">
+              ADD REVIEW
+            </button>
+          </div>
+
+          <div className="border-t border-gray-200" />
+
+          <div className="grid grid-cols-1 gap-8 p-6 sm:grid-cols-[220px_1fr]">
+            {/* LEFT BOX (avg + stars + count) */}
+            <div className="flex flex-col items-center justify-center sm:border-r sm:pr-6">
+              <div className="text-5xl font-semibold text-gray-800">
+                {average}
+              </div>
+
+              {/* star placeholders exactly like screenshot */}
+              <div className="mt-3 flex items-center gap-2">
+                {[...Array(5)].map((_, i) => (
+                  <svg
+                    key={i}
+                    viewBox="0 0 24 24"
+                    className="h-6 w-6 text-gray-400"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  >
+                    <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21 12 17.27Z" />
+                  </svg>
+                ))}
+              </div>
+
+              <div className="mt-2 text-sm text-gray-600">{total} Ratings</div>
+            </div>
+
+            {/* RIGHT: 5 bars with labels and “0 reviews” */}
+            <div className="space-y-5 sm:pl-2">
+              <Row label="5 stars" />
+              <Row label="4 stars" />
+              <Row label="3 stars" />
+              <Row label="2 stars" />
+              <Row label="1 stars" />
+            </div>
+          </div>
+        </div>
+
+        {/* BOTTOM: ALL REVIEWS CARD */}
+        <div className="mt-8 rounded-2xl border border-gray-200 bg-white shadow-sm">
+          <div className="p-5 sm:p-6">
+            <h3 className="text-xl sm:text-2xl tracking-[0.15em]">
+              ALL REVIEWS
+            </h3>
+          </div>
+          <div className="border-t border-gray-200" />
+          <div className="h-40 sm:h-60" />
+        </div>
+      </section>
     </main>
   );
 }
