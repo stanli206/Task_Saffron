@@ -190,23 +190,23 @@ export default function KashmiriSaffron() {
                 {/* Links */}
                 <div className="grid md:grid-cols-3 gap-12 text-center md:text-left text-sm">
                   <div className="space-y-3 tracking-[0.2em]">
-                    <a href="#" className="block hover:text-white">
+                    <a className="block hover:text-white">
                       CONTACT
                     </a>
-                    <a href="#" className="block hover:text-white">
+                    <a className="block hover:text-white">
                       ABOUT
                     </a>
                   </div>
       
                   <div className="space-y-3 tracking-[0.2em]">
-                    <a href="#" className="block hover:text-white">
+                    <a className="block hover:text-white">
                       TERMS AND CONDITION
                     </a>
-                    <a href="#" className="block hover:text-white">
+                    <a className="block hover:text-white">
                       PRIVACY POLICY
                     </a>
                     <a
-                      href="#"
+                     
                       className="block hover:text-white flex items-center gap-2 justify-center md:justify-start"
                     >
                       CORPORATE ESSENTIALS <span>▼</span>
@@ -214,13 +214,13 @@ export default function KashmiriSaffron() {
                   </div>
       
                   <div className="space-y-3 tracking-[0.2em]">
-                    <a href="#" className="block hover:text-white">
+                    <a className="block hover:text-white">
                       REFUND POLICY
                     </a>
-                    <a href="#" className="block hover:text-white">
+                    <a className="block hover:text-white">
                       SHIPPING POLICY
                     </a>
-                    <a href="#" className="block hover:text-white">
+                    <a className="block hover:text-white">
                       FAQ
                     </a>
                   </div>
