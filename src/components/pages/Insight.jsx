@@ -40,15 +40,7 @@ export default function Insight() {
             and life its vibrance.
           </p>
 
-          <button
-            className="mt-8 rounded-full bg-white/95 px-7 py-3 text-sm font-semibold text-gray-900 shadow-lg backdrop-blur transition hover:bg-white"
-            onClick={() => {
-              const el = document.getElementById("quality");
-              if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-            }}
-          >
-            DISCOVER
-          </button>
+          
         </div>
       </header>
 
